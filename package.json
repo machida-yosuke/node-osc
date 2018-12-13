@@ -1,0 +1,28 @@
+{
+  "name": "osc",
+  "version": "1.0.0",
+  "description": "",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/machida-yosuke/node-osc.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/machida-yosuke/node-osc/issues"
+  },
+  "homepage": "https://github.com/machida-yosuke/node-osc#readme",
+  "dependencies": {
+    "firebase": "^5.7.0",
+    "node-osc": "^3.0.0"
+  },
+  "devDependencies": {
+    "forever": "^0.15.3",
+    "webpack": "^4.27.1",
+    "webpack-cli": "^3.1.2"
+  }
+}
