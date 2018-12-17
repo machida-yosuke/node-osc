@@ -58,7 +58,7 @@ async function postImage() {
   databaseRef.push({
     url,
     name: inputValue,
-    timestamp: createdTime
+    time: createdTime
   });
 }
 

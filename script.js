@@ -1,18 +1,11 @@
 var osc = require("node-osc");
 var firebase = require("firebase");
+var config = require("./config.js");
 
+var firebaseConfig = config.config;
 var dt = Date.now();
 
-var firebaseCongfig = {
-  apiKey: "AIzaSyDC8mkz4ogcuBXg67n2dN4fEqvY2fH9Gsw",
-  authDomain: "td-qiita-firebase.firebaseapp.com",
-  databaseURL: "https://td-qiita-firebase.firebaseio.com",
-  projectId: "td-qiita-firebase",
-  storageBucket: "td-qiita-firebase.appspot.com",
-  messagingSenderId: "338016839351"
-};
-
-var app = firebase.initializeApp(firebaseCongfig);
+var app = firebase.initializeApp(firebaseConfig);
 var oscClient = new osc.Client("localhost", 6000);
 var messagesRef = app
   .database()
@@ -21,12 +14,9 @@ var messagesRef = app
 
 messagesRef.on("child_added", function(snapshot) {
   var msg = snapshot.val();
-  if (dt > msg.timestamp) {
+  if (dt > msg.time) {
     return;
   }
-  console.log("追加されたぞ");
-
-  oscClient.send("/", msg.url, msg.name, function() {
-    // console.log(msg);
-  });
+  console.log("追加されたぞ", msg);
+  oscClient.send("/", msg.url, msg.name, function() {});
 });
